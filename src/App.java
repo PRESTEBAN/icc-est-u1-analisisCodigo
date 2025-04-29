@@ -74,7 +74,7 @@ public class App {
         int[] arregloInsercionOrdenado3 =
         ordenador.insercionTercero(arregloInsercion);
         System.out.println(
-        "Resultado insercción Metodo 1: " +
+        "Resultado insercción Metodo 3: " +
         java.util.Arrays.toString(arregloInsercionOrdenado3));
 
     }

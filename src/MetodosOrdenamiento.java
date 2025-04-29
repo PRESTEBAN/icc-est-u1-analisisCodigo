@@ -178,17 +178,18 @@ public class MetodosOrdenamiento {
     }
 
     // Método de inserción con errores
-    // Error encontrado:
+    // Error encontrado: en el indice i se le debe restar 1 a la j, en el while se le debe restar a i e i en el while debe ser >= 0, no sumar y el sentido de ordenamiento está descendentemente
+    // Solución: restar 1 a la j en el i, en el i del while debe ser mayor o igual a 0,  en el while decrementar a la i en vez de incrementar y cambiar por mayor 1ue en el while
     public int[] insercionTercero(int[] arregloOriginal) {
 
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
         for (int j = 1; j < arreglo.length; j++) {
             int key = arreglo[j];
-            int i = j;
+            int i = j-1;
 
-            while (i > 0 && arreglo[i] < key) {
+            while (i >=0  && arreglo[i] > key) {
                 arreglo[i + 1] = arreglo[i];
-                i++;
+                i--;
             }
             arreglo[i + 1] = key;
         }
