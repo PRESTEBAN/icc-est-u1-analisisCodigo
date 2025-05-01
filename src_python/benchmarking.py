@@ -5,6 +5,9 @@ from metodos_Ordenamiento import MetodosOrdanamiento
 class Benchmarking: #nombre de la clase siempre en mayuscula
     def __init__(self):
         print("Bench inicializado")
+        
+        
+    def ejemplo(self):
         arreglo = self.build_arreglo(50000)
         self.mOrdenamiento = MetodosOrdanamiento()
         
@@ -32,4 +35,12 @@ class Benchmarking: #nombre de la clase siempre en mayuscula
         tarea()
         fin = time.time_ns()
         return (fin - inicio) / 1_000_000_000.0
+    
+    def medir_tiempo(self,tarea,array):
+        inicio = time.perf_counter()
+        tarea(array)
+        fin = time.perf_counter()
+        return fin - inicio 
+    
+    
     
