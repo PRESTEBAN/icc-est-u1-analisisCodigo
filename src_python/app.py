@@ -2,6 +2,7 @@ from matplotlib import pyplot as plt
 import benchmarking as Ben
 from metodos_Ordenamiento import MetodosOrdanamiento
 import benchmarking as bM
+from datetime import datetime
 
 if __name__ == "__main__":
     print("Funciona")
@@ -38,9 +39,12 @@ if __name__ == "__main__":
     for tam,nombre,tiempo in resultados:
         tiempos_by_metodo[nombre].append(tiempo)
     
+        
+    fecha_hora_actual = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        
     #crear una gráfica
-    plt.figure(figsize=(10,6))
-    
+    fig = plt.figure(figsize=(10,6))
+    fig.canvas.manager.set_window_title(f"Esteban Pesantez - {fecha_hora_actual}") 
     #graficar una lina de tiempo para cada metodo
     # el x sean el tamanio del arreglo
     # el y sea los tiempos obtenidos
@@ -48,8 +52,11 @@ if __name__ == "__main__":
     for nombre,tiempos in tiempos_by_metodo.items():
         plt.plot(tamanios, tiempos, label=nombre, marker='o')
         
+    
+  
     #Agregar los parametros
-    plt.title("Comparativa metodos")
+    
+    plt.title(f"Esteban Pesantez - {fecha_hora_actual}")
     plt.xlabel("Tiempos obtenidos")
     plt.ylabel("Tamanios arreglo")
     plt.legend()
